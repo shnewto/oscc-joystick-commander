@@ -359,6 +359,8 @@ static int command_brakes( )
                 normalized_position,
                 BRAKE_FILTER_FACTOR );
 
+            average = CONSTRAIN(average, 0.0, 0.6);
+
             printf("Brake: %f ", average);
 
             return_code = oscc_publish_brake_position( average );
